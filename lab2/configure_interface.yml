@@ -1,0 +1,46 @@
+---
+- name: Configure interfaces and static routes on three Junos routers
+  hosts: vmx_routers # Target the group containing vmx1, vmx2, and vmx3
+  gather_facts: true
+
+  tasks:
+    - name: Print some facts
+      ansible.builtin.debug:
+        var: ansible_facts
+    # This debug task is still here for verification, but can be removed later
+    - name: Debug interface items before config
+      ansible.builtin.debug:
+        var: item
+      loop: "{{ interface_ips }}" # Loop over the list defined in host_vars
+      loop_control:
+        label: "Debugging interface_ips item"
+
+    - name: Build interface configuration lines (Simplified Loop)
+      ansible.builtin.set_fact:
+        # Create a list called 'interface_config_lines' using a simple loop and concatenation
+        interface_config_lines: "{{ interface_config_lines | default([]) + ['set interfaces ' + item.name + ' unit ' + item.unit | string + ' family ' + item.family + ' address ' + item.address] }}"
+      loop: "{{ interface_ips }}" # Loop over the list of interface definitions
+      loop_control:
+        label: "Building config for {{ item.name }}.{{ item.unit }}" # Make output clearer
+
+    # This debug task is still here to verify the variable is defined
+    - name: Debug generated interface_config_lines
+      ansible.builtin.debug:
+        var: interface_config_lines
+
+    - name: Configure interface IP addresses
+      # Use the list of lines built by set_fact
+      junipernetworks.junos.junos_config:
+        lines: "{{ interface_config_lines }}" # Pass the generated list of commands
+        # NO loop: directive on this task anymore
+        provider:
+          host: "{{ inventory_hostname }}"
+          # username: your_ssh_username # Uncomment if needed
+          # password: your_ssh_password # Uncomment if needed
+        comment: "Configured interface IPs via Ansible"
+      register: interface_config_result
+
+    - name: Display interface configuration results for {{ inventory_hostname }}
+      ansible.builtin.debug:
+        var: interface_config_result
+

@@ -1,0 +1,5 @@
+1.  Enable OSPF such that both PCs can communicate
+2.  Start a ping from pc1 to pc2
+3.  Disable the link on vmx2, make sure the traffic stops then returns
+4.  Re-enable the link on vmx2, stop the link on vmx5
+5.  Make sure the traffic stops,t hen returns

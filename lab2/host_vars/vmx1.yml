@@ -1,0 +1,13 @@
+interface_ips:
+  - name: ge-0/0/1
+    unit: 0
+    family: inet
+    address: 10.0.0.1/24
+  - name: ge-0/0/3
+    unit: 0
+    family: inet
+    address: 10.4.0.2/24
+  - name: ge-0/0/0
+    unit: 0
+    family: inet
+    address: 10.5.0.1/24

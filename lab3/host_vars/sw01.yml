@@ -1,0 +1,29 @@
+interface_ips:
+  - name: ge-0/0/1
+    unit: 0
+    vlan: 10
+  - name: ge-0/0/2
+    unit: 0
+    vlan: 10
+  - name: ge-0/0/3
+    unit: 0
+    vlan: 20
+  - name: ge-0/0/4
+    unit: 0
+    vlan: 20
+  - name: ge-0/0/5
+    unit: 0
+    vlan: 30
+  - name: ge-0/0/6
+    unit: 0
+    vlan: 30
+vlans:
+  - name: A
+    vlan-id: 10
+    description: 'Configured by Ansible' 
+  - name: B
+    vlan-id: 20
+    description: 'Configured by Ansible' 
+  - name: C
+    vlan-id: 30
+    description: 'Configured by Ansible' 

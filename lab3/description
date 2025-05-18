@@ -1,0 +1,21 @@
+Setup a basic switch topo.
+
+A ---------
+          |
+B --------- SW1 ------- VMX1
+          |
+C ---------
+
+
+A B and C are VLans. (Manually)
+
+1.  Setup the Vlans, verify that PCs on A can talk to PCs on A, B can talk to B, and C can talk to C, and A can't talk to C.
+2.  add a trunk port to SW1, and setup the router.
+3.  Verify that all PCs can talk.
+
+Create Two PCs per VLAN.
+
+NOTE: Write an ansible playbook to configure the PCs, and the Switches.
+1.  Create playbook to configure the PC
+2.  Create playbook to configure the switches
+3.  See if you can merge the two.

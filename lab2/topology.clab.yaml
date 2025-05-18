@@ -1,0 +1,44 @@
+name: learning
+
+topology:
+  nodes:
+    vmx1:
+      kind: juniper_vmx
+      image: vrnetlab/juniper_vmx:22.2R3-S1.9
+    vmx2:
+      kind: juniper_vmx
+      image: vrnetlab/juniper_vmx:22.2R3-S1.9
+    vmx3:
+      kind: juniper_vmx
+      image: vrnetlab/juniper_vmx:22.2R3-S1.9
+    vmx4:
+      kind: juniper_vmx
+      image: vrnetlab/juniper_vmx:22.2R3-S1.9
+    vmx5:
+      kind: juniper_vmx
+      image: vrnetlab/juniper_vmx:22.2R3-S1.9
+    #sw1:
+    #  kind: juniper_vjunosswitch
+    #  image: vrnetlab/juniper_vjunos-switch:24.4R1.9
+
+    # Linux hosts (2 per switch)
+    pc1:
+      kind: linux
+      image: nicolaka/netshoot
+    pc2:
+      kind: linux
+      image: nicolaka/netshoot
+  links:
+    - endpoints: ["pc1:eth1", "vmx1:ge-0/0/0"]
+    # vMX to vJunos-switch connections
+    - endpoints: ["vmx1:ge-0/0/1", "vmx2:ge-0/0/1"]
+    - endpoints: ["vmx2:ge-0/0/2", "vmx3:ge-0/0/2"]
+    - endpoints: ["vmx3:ge-0/0/3", "pc2:eth1"]
+    - endpoints: ["vmx3:ge-0/0/1", "vmx4:ge-0/0/1"]
+    - endpoints: ["vmx4:ge-0/0/3", "vmx5:ge-0/0/3"]
+    - endpoints: ["vmx5:ge-0/0/2", "vmx1:ge-0/0/3"]
+
+    # Linux hosts to switches
+    #- endpoints: ["sw1:eth4", "corporate_lan:eth1"]
+    #- endpoints: ["sw1:eth5", "server_lan:eth1"]
+    #- endpoints: ["sw1:eth6", "guest_lan:eth1"]

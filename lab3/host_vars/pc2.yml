@@ -1,0 +1,6 @@
+interface_ips:
+  - name: eth1
+    address: 10.0.0.3
+    prefix: 24
+    gateway: 10.0.0.1
+    route: 10.0.0.0/8

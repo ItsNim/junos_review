@@ -1,0 +1,36 @@
+name: learning
+
+topology:
+  nodes:
+    sw01:
+      kind: juniper_vmx
+      image: vrnetlab/juniper_vjunos-switch:24.4R1.9
+    vmx1:
+      kind: juniper_vmx
+      image: vrnetlab/juniper_vmx:22.2R3-S1.9
+    pc1:
+      kind: linux
+      image: nicolaka/netshoot
+    pc2:
+      kind: linux
+      image: nicolaka/netshoot
+    pc3:
+      kind: linux
+      image: nicolaka/netshoot
+    pc4:
+      kind: linux
+      image: nicolaka/netshoot
+    pc5:
+      kind: linux
+      image: nicolaka/netshoot
+    pc6:
+      kind: linux
+      image: nicolaka/netshoot
+  links:
+    - endpoints: ["pc1:eth1", "sw01:ge-0/0/1"]
+    - endpoints: ["pc2:eth1", "sw01:ge-0/0/2"]
+    - endpoints: ["pc3:eth1", "sw01:ge-0/0/3"]
+    - endpoints: ["pc4:eth1", "sw01:ge-0/0/4"]
+    - endpoints: ["pc5:eth1", "sw01:ge-0/0/5"]
+    - endpoints: ["pc6:eth1", "sw01:ge-0/0/6"]
+    - endpoints: ["vmx1:ge-0/0/0", "sw01:ge-0/0/0"]
