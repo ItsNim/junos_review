@@ -335,3 +335,135 @@ duplicate endpoint vmx5:eth4 (ge-0/0/3)
 14:21:29 INFO Removing host entries path=/etc/hosts
 14:21:29 INFO Removing SSH config path=/etc/ssh/ssh_config.d/clab-learning.conf
 [0;32m[2025-05-18 14:21:27] Lab stopped successfully![0m
+[0;32m[2025-05-18 16:51:00] Stopping lab...[0m
+16:51:01 INFO Parsing & checking topology file=topology.clab.yaml
+16:51:01 INFO Parsing & checking topology file=topology.clab.yaml
+16:51:01 INFO Destroying lab name=learning
+16:51:02 INFO Removed container name=clab-learning-pc1
+16:51:02 INFO Removed container name=clab-learning-pc2
+16:51:02 INFO Removed container name=clab-learning-vmx2
+16:51:02 INFO Removed container name=clab-learning-vmx1
+16:51:02 INFO Removed container name=clab-learning-vmx3
+16:51:02 INFO Removing host entries path=/etc/hosts
+16:51:02 INFO Removing SSH config path=/etc/ssh/ssh_config.d/clab-learning.conf
+[0;32m[2025-05-18 16:51:00] Lab stopped successfully![0m
+[0;32m[2025-05-18 16:51:07] Starting lab...[0m
+16:51:08 INFO Containerlab started version=0.68.0
+16:51:08 INFO Parsing & checking topology file=topology.clab.yaml
+16:51:08 INFO Creating docker network name=clab IPv4 subnet=172.20.20.0/24 IPv6 subnet=3fff:172:20:20::/64 MTU=1500
+16:51:08 INFO Creating lab directory path=/home/mike/junos_review/lab2/clab-learning
+16:51:08 INFO Creating container name=vmx3
+16:51:08 INFO Creating container name=vmx4
+16:51:08 INFO Creating container name=pc1
+16:51:08 INFO Creating container name=vmx1
+16:51:08 INFO Creating container name=pc2
+16:51:08 INFO Creating container name=vmx2
+16:51:08 INFO Creating container name=vmx5
+16:51:10 INFO Created link: vmx2:eth3 (ge-0/0/2) ▪┄┄▪ vmx3:eth3 (ge-0/0/2)
+16:51:13 INFO Created link: pc1:eth1 ▪┄┄▪ vmx1:eth1 (ge-0/0/0)
+16:51:13 INFO Created link: vmx1:eth2 (ge-0/0/1) ▪┄┄▪ vmx2:eth2 (ge-0/0/1)
+16:51:13 INFO Created link: vmx3:eth2 (ge-0/0/1) ▪┄┄▪ vmx4:eth2 (ge-0/0/1)
+16:51:13 INFO Created link: vmx4:eth4 (ge-0/0/3) ▪┄┄▪ vmx5:eth4 (ge-0/0/3)
+16:51:13 INFO Created link: vmx5:eth3 (ge-0/0/2) ▪┄┄▪ vmx1:eth4 (ge-0/0/3)
+16:51:13 INFO Created link: vmx3:eth4 (ge-0/0/3) ▪┄┄▪ pc2:eth1
+16:51:14 INFO Adding host entries path=/etc/hosts
+16:51:14 INFO Adding SSH config for nodes path=/etc/ssh/ssh_config.d/clab-learning.conf
+[1m╭[0m[1m────────────────────[0m[1m┬[0m[1m──────────────────────────────────[0m[1m┬[0m[1m────────────────────[0m[1m┬[0m[1m───────────────────[0m[1m╮[0m
+[1m│[0m[1m        Name        [0m[1m│[0m[1m            Kind/Image            [0m[1m│[0m[1m        State       [0m[1m│[0m[1m   IPv4/6 Address  [0m[1m│[0m
+[1m├[0m[1m────────────────────[0m[1m┼[0m[1m──────────────────────────────────[0m[1m┼[0m[1m────────────────────[0m[1m┼[0m[1m───────────────────[0m[1m┤[0m
+│ clab-learning-pc1  │ linux                            │ running            │ 172.20.20.5       │
+│                    │ nicolaka/netshoot                │                    │ 3fff:172:20:20::5 │
+├────────────────────┼──────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-pc2  │ linux                            │ running            │ 172.20.20.8       │
+│                    │ nicolaka/netshoot                │                    │ 3fff:172:20:20::8 │
+├────────────────────┼──────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx1 │ juniper_vmx                      │ running            │ 172.20.20.4       │
+│                    │ vrnetlab/juniper_vmx:22.2R3-S1.9 │ (health: starting) │ 3fff:172:20:20::4 │
+├────────────────────┼──────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx2 │ juniper_vmx                      │ running            │ 172.20.20.2       │
+│                    │ vrnetlab/juniper_vmx:22.2R3-S1.9 │ (health: starting) │ 3fff:172:20:20::2 │
+├────────────────────┼──────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx3 │ juniper_vmx                      │ running            │ 172.20.20.3       │
+│                    │ vrnetlab/juniper_vmx:22.2R3-S1.9 │ (health: starting) │ 3fff:172:20:20::3 │
+├────────────────────┼──────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx4 │ juniper_vmx                      │ running            │ 172.20.20.6       │
+│                    │ vrnetlab/juniper_vmx:22.2R3-S1.9 │ (health: starting) │ 3fff:172:20:20::6 │
+├────────────────────┼──────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx5 │ juniper_vmx                      │ running            │ 172.20.20.7       │
+│                    │ vrnetlab/juniper_vmx:22.2R3-S1.9 │ (health: starting) │ 3fff:172:20:20::7 │
+╰────────────────────┴──────────────────────────────────┴────────────────────┴───────────────────╯
+[0;32m[2025-05-18 16:51:07] Lab started successfully![0m
+[0;32m[2025-05-18 16:51:07] Stopping lab...[0m
+16:51:16 INFO Parsing & checking topology file=topology.clab.yaml
+16:51:16 INFO Parsing & checking topology file=topology.clab.yaml
+16:51:16 INFO Destroying lab name=learning
+16:51:17 INFO Removed container name=clab-learning-pc1
+16:51:17 INFO Removed container name=clab-learning-pc2
+16:51:18 INFO Removed container name=clab-learning-vmx2
+16:51:18 INFO Removed container name=clab-learning-vmx4
+16:51:18 INFO Removed container name=clab-learning-vmx5
+16:51:18 INFO Removed container name=clab-learning-vmx3
+16:51:18 INFO Removed container name=clab-learning-vmx1
+16:51:18 INFO Removing host entries path=/etc/hosts
+16:51:18 INFO Removing SSH config path=/etc/ssh/ssh_config.d/clab-learning.conf
+[0;32m[2025-05-18 16:51:07] Lab stopped successfully![0m
+[0;32m[2025-05-18 16:52:51] Starting lab...[0m
+16:52:52 INFO Containerlab started version=0.68.0
+16:52:52 INFO Parsing & checking topology file=topology.clab.yaml
+16:52:52 INFO Creating docker network name=clab IPv4 subnet=172.20.20.0/24 IPv6 subnet=3fff:172:20:20::/64 MTU=1500
+16:52:52 INFO Creating lab directory path=/home/mike/junos_review/lab2/clab-learning
+16:52:52 INFO Creating container name=pc1
+16:52:52 INFO Creating container name=vmx4
+16:52:52 INFO Creating container name=vmx2
+16:52:52 INFO Creating container name=pc2
+16:52:52 INFO Creating container name=vmx1
+16:52:52 INFO Creating container name=vmx3
+16:52:52 INFO Creating container name=vmx5
+16:52:52 INFO Created link: pc1:eth1 ▪┄┄▪ vmx1:eth1 (ge-0/0/0)
+16:52:52 INFO Created link: vmx2:eth3 (ge-0/0/2) ▪┄┄▪ vmx3:eth3 (ge-0/0/2)
+16:52:52 INFO Created link: vmx1:eth2 (ge-0/0/1) ▪┄┄▪ vmx2:eth2 (ge-0/0/1)
+16:52:52 INFO Created link: vmx4:eth4 (ge-0/0/3) ▪┄┄▪ vmx5:eth4 (ge-0/0/3)
+16:52:52 INFO Created link: vmx3:eth4 (ge-0/0/3) ▪┄┄▪ pc2:eth1
+16:52:53 INFO Created link: vmx5:eth3 (ge-0/0/2) ▪┄┄▪ vmx1:eth4 (ge-0/0/3)
+16:52:53 INFO Created link: vmx3:eth2 (ge-0/0/1) ▪┄┄▪ vmx4:eth2 (ge-0/0/1)
+16:52:53 INFO Adding host entries path=/etc/hosts
+16:52:53 INFO Adding SSH config for nodes path=/etc/ssh/ssh_config.d/clab-learning.conf
+[1m╭[0m[1m────────────────────[0m[1m┬[0m[1m────────────────────────────────────────────[0m[1m┬[0m[1m────────────────────[0m[1m┬[0m[1m───────────────────[0m[1m╮[0m
+[1m│[0m[1m        Name        [0m[1m│[0m[1m                 Kind/Image                 [0m[1m│[0m[1m        State       [0m[1m│[0m[1m   IPv4/6 Address  [0m[1m│[0m
+[1m├[0m[1m────────────────────[0m[1m┼[0m[1m────────────────────────────────────────────[0m[1m┼[0m[1m────────────────────[0m[1m┼[0m[1m───────────────────[0m[1m┤[0m
+│ clab-learning-pc1  │ linux                                      │ running            │ 172.20.20.3       │
+│                    │ nicolaka/netshoot                          │                    │ 3fff:172:20:20::3 │
+├────────────────────┼────────────────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-pc2  │ linux                                      │ running            │ 172.20.20.7       │
+│                    │ nicolaka/netshoot                          │                    │ 3fff:172:20:20::7 │
+├────────────────────┼────────────────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx1 │ juniper_vjunosrouter                       │ running            │ 172.20.20.5       │
+│                    │ vrnetlab/juniper_vjunos-router:24.2R1-S2.5 │ (health: starting) │ 3fff:172:20:20::5 │
+├────────────────────┼────────────────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx2 │ juniper_vjunosrouter                       │ running            │ 172.20.20.4       │
+│                    │ vrnetlab/juniper_vjunos-router:24.2R1-S2.5 │ (health: starting) │ 3fff:172:20:20::4 │
+├────────────────────┼────────────────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx3 │ juniper_vjunosrouter                       │ running            │ 172.20.20.6       │
+│                    │ vrnetlab/juniper_vjunos-router:24.2R1-S2.5 │ (health: starting) │ 3fff:172:20:20::6 │
+├────────────────────┼────────────────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx4 │ juniper_vjunosrouter                       │ running            │ 172.20.20.2       │
+│                    │ vrnetlab/juniper_vjunos-router:24.2R1-S2.5 │ (health: starting) │ 3fff:172:20:20::2 │
+├────────────────────┼────────────────────────────────────────────┼────────────────────┼───────────────────┤
+│ clab-learning-vmx5 │ juniper_vjunosrouter                       │ running            │ 172.20.20.8       │
+│                    │ vrnetlab/juniper_vjunos-router:24.2R1-S2.5 │ (health: starting) │ 3fff:172:20:20::8 │
+╰────────────────────┴────────────────────────────────────────────┴────────────────────┴───────────────────╯
+[0;32m[2025-05-18 16:52:51] Lab started successfully![0m
+[0;32m[2025-05-18 16:59:32] Stopping lab...[0m
+16:59:33 INFO Parsing & checking topology file=topology.clab.yaml
+16:59:33 INFO Parsing & checking topology file=topology.clab.yaml
+16:59:33 INFO Destroying lab name=learning
+16:59:33 INFO Removed container name=clab-learning-pc1
+16:59:33 INFO Removed container name=clab-learning-pc2
+16:59:33 INFO Removed container name=clab-learning-vmx4
+16:59:33 INFO Removed container name=clab-learning-vmx2
+16:59:33 INFO Removed container name=clab-learning-vmx5
+16:59:33 INFO Removed container name=clab-learning-vmx3
+16:59:33 INFO Removed container name=clab-learning-vmx1
+16:59:33 INFO Removing host entries path=/etc/hosts
+16:59:33 INFO Removing SSH config path=/etc/ssh/ssh_config.d/clab-learning.conf
+[0;32m[2025-05-18 16:59:32] Lab stopped successfully![0m
